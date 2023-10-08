@@ -6,6 +6,7 @@ import { reader } from "../config/helpers";
 import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
 import { fadeAnimation, slideAnimation } from "../config/motion";
 import { ColorPicker, Tab, AIPicker, CustomButton, FilePicker } from "../components";
+import config from "../config/config";
 
 const Customizer: React.FC<{  }> = props => {
     const snap = useSnapshot(state);
@@ -23,7 +24,7 @@ const Customizer: React.FC<{  }> = props => {
 
         try {
             setGeneratingImg(true);
-            const response = await fetch('http://localhost:8080/api/v1/dalle', {
+            const response = await fetch(config.production.backendUrl, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
