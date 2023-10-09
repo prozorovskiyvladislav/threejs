@@ -8,10 +8,10 @@ import { fadeAnimation, slideAnimation } from "../config/motion";
 import { ColorPicker, Tab, AIPicker, CustomButton, FilePicker } from "../components";
 import config from "../config/config";
 
-const Customizer: React.FC<{  }> = props => {
+const Customizer: React.FC = () => {
     const snap = useSnapshot(state);
 
-    const [file, setFile] = useState('');
+    const [file, setFile] = useState<File>();
     const [prompt, setPrompt] = useState('');
     const [generatingImg, setGeneratingImg] = useState(false);
     const [activeEditorTab, setActiveEditorTab] = useState("");
@@ -19,7 +19,7 @@ const Customizer: React.FC<{  }> = props => {
         logoShirt: true,
         stylishShirt: false
     });
-    const handleSubmit = async(type) => {
+    const handleSubmit = async(type: string) => {
         if(!prompt) return alert("Please enter a prompt")
 
         try {
@@ -60,14 +60,14 @@ const Customizer: React.FC<{  }> = props => {
         }
     }
 
-    const handleClickActiveEditorTab = (tab) => {
+    const handleClickActiveEditorTab = (tab: string) => {
         if(tab === activeEditorTab) {
             setActiveEditorTab('');
         } else {
             setActiveEditorTab(tab);
         }
     }
-    const handleActiveFilterTab = (tabName) => {
+    const handleActiveFilterTab = (tabName: string) => {
         switch (tabName) {
             case 'logoShirt':
                 state.isLogoTexture = !activeFilterTab[tabName];
@@ -85,18 +85,18 @@ const Customizer: React.FC<{  }> = props => {
             [tabName]: !prevState[tabName]
         }))
     }
-    const handleDecals = (type, result) => {
+    const handleDecals = (type: string, result: string) => {
         const decalType = DecalTypes[type];
         state[decalType.stateProperty] = result;
         if(!activeFilterTab[decalType.filterTab]) {
             handleActiveFilterTab(decalType.filterTab)
         }
     }
-    const readFile = (type) => {
-      reader(file).then(result => {
-          handleDecals(type,result);
-          setActiveEditorTab("")
-      })
+    const readFile = (type: string) => {
+        reader(file).then(result => {
+            handleDecals(type,result);
+            setActiveEditorTab("")
+          })
     }
 
     return (

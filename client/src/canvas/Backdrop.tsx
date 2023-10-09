@@ -1,13 +1,8 @@
-import {easing} from "maath";
-import {useRef} from "react";
-import {useFrame} from "@react-three/fiber";
 import {AccumulativeShadows, RandomizedLight} from "@react-three/drei";
 
-const Backdrop: React.FC<{  }> = props => {
-    const shadows = useRef();
+const Backdrop: React.FC = () => {
     return (
         <AccumulativeShadows
-            ref={shadows}
             temporal
             frames={60}
             alphaTest={0.85}

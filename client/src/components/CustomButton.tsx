@@ -3,7 +3,7 @@ import {useSnapshot} from "valtio";
 type CustomButtonProps = {
     type: string
     title: string;
-    handleClick: () => void;
+    handleClick?: () => void;
     customStyles: string;
 }
 import state from "../store";
@@ -11,7 +11,7 @@ import { getContrastingColor } from "../config/helpers";
 
 const CustomButton: React.FC<CustomButtonProps> = ({type, customStyles, title, handleClick}) => {
     const snap = useSnapshot(state);
-    const generateStyle = (type) => {
+    const generateStyle = (type: string) => {
         if (type === 'filled') {
             return {
                 backgroundColor: snap.color,

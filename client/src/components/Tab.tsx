@@ -1,11 +1,13 @@
 import {useSnapshot} from "valtio";
 import state from '../store';
-import {ReactNode} from "react";
 
 type TabTypes = {
-    tab: ReactNode;
+    tab: {
+        name: string;
+        icon: string;
+    };
     isFilterTab?: boolean;
-    isActiveTab: string;
+    isActiveTab?: string;
     handleClick: () => void;
 }
 

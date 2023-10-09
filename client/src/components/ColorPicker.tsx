@@ -1,7 +1,7 @@
 import {SketchPicker} from 'react-color';
 import {useSnapshot} from "valtio";
 import state from '../store'
-const ColorPicker: React.FC<{  }> = props => {
+const ColorPicker: React.FC = () => {
     const snap = useSnapshot(state);
     return (
         <div className="absolute left-full ml-3">

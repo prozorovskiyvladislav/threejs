@@ -26,7 +26,14 @@ export const FilterTabs = [
   },
 ];
 
-export const DecalTypes = {
+type DecalType = {
+  [key: string] : {
+    stateProperty: string;
+    filterTab: string;
+  }
+}
+
+export const DecalTypes: DecalType = {
   logo: {
     stateProperty: "logoDecal",
     filterTab: "logoShirt",

@@ -1,5 +1,12 @@
 import {CustomButton} from "./index";
-const FilePicker: React.FC<{  }> = ({file, setFile, readFile}) => {
+
+type FilePickerProps = {
+    file: File;
+    setFile: (file: File | null) => void;
+    readFile:(type:string) => void;
+}
+const FilePicker: React.FC<FilePickerProps> = ({file, setFile, readFile}) => {
+    console.log(file)
     return (
         <div className="filepicker-container">
             <div className="flex-1 flex flex-col">
@@ -13,7 +20,7 @@ const FilePicker: React.FC<{  }> = ({file, setFile, readFile}) => {
                     Upload File
                 </label>
                 <p className="mt-2 text-grey-500 text-xs truncate">
-                    {file === '' ? 'No file selected': file.name}
+                    {!file ? 'No file selected': file.name}
                 </p>
             </div>
             <div className="mt-4 flex flex-wrap gap-3">

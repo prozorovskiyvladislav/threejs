@@ -1,6 +1,13 @@
 import {CustomButton} from "./index";
 
-const AIPicker: React.FC<{  }> = ({prompt, setPrompt, generatingImg, handleSubmit}) => {
+type AiPickerType = {
+    prompt: string;
+    setPrompt: (value: string) => void;
+    generatingImg: boolean;
+    handleSubmit: (type: string) => void;
+}
+
+const AIPicker: React.FC<AiPickerType> = ({prompt, setPrompt, generatingImg, handleSubmit}) => {
     return (
         <div className="aipicker-container">
             <textarea

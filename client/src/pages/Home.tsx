@@ -3,7 +3,7 @@ import { useSnapshot } from "valtio";
 import { headContainerAnimation, headContentAnimation, headTextAnimation, slideAnimation } from "../config/motion";
 import  state from '../store';
 import { CustomButton } from "../components";
-const Home: React.FC<{  }> = props => {
+const Home: React.FC = () => {
     const snap = useSnapshot(state);
     return (
         <AnimatePresence>

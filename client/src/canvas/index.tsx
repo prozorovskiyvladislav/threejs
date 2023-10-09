@@ -4,7 +4,7 @@ import Shirt from './Shirt';
 import Backdrop from "./Backdrop";
 import CameraRig from "./CameraRig";
 
-const CanvasModel: React.FC<{  }> = props => {
+const CanvasModel: React.FC = () => {
     return (
         <Canvas
             shadows
