@@ -17,7 +17,7 @@ type GLTFResult = GLTF & {
 
 const Shirt: React.FC = () => {
     const snap = useSnapshot(state);
-    const { nodes, materials } = useGLTF('/shirt_baked.glb') as GLTFResult;
+    const { nodes, materials } = useGLTF('shirt_baked.glb') as GLTFResult;
     const logoTexture = useTexture(snap.logoDecal);
     const fullTexture = useTexture(snap.fullDecal);
     useFrame((_, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta));
